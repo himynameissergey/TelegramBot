@@ -68,6 +68,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="rButtonsCommand.cs" />
+    <Compile Include="SendDocCommand.cs" />
     <Compile Include="ShowCommand.cs" />
     <Compile Include="MyCommand.cs" />
     <Compile Include="TalkCommand.cs" />
