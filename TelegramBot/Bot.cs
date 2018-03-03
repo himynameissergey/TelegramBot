@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Telegram.Bot;
+using Telegram.Bot.Types;
 
 namespace TelegramBot
 {
@@ -48,6 +49,10 @@ namespace TelegramBot
         //{
         //    return str.Substring(0, 1).ToUpper() + (str.Length > 1 ? str.Substring(1) : "");
         //}
+        public static void ConsoleWriteLog(Message message)
+        {
+            Console.WriteLine("" + DateTime.Now + " >> " + message.From.LastName + " " + message.From.FirstName + " >> " + message.Text);
+        }
         public BotCommandModel Parse(string text)
         {
             //if (text.StartsWith("/"))

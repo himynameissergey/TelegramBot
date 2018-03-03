@@ -122,8 +122,6 @@ namespace TelegramBot
             var messageId = message.MessageId;
 
             //DataTable dTableAll = GetDataFromQuery(message.Text.Substring(6)); //? message.From.LastName+" "+message.From.FirstName
-            //if (message.From.LastName.Contains("Бирюков")&&message.From.FirstName.contain)
-
             DataTable dTableAll = GetDataFromQuery(message.From.LastName.Split()[0] + " " + message.From.FirstName.Split()[0]);
             string rowTextAll = "";
             if (dTableAll.Rows.Count != 0)
@@ -139,20 +137,20 @@ namespace TelegramBot
                 }
                 // в ответ на команду (фамилию), введенную пользователем в Telegram, выводим сообщение
                 await client.SendTextMessageAsync(chatId, rowTextAll);//, replyToMessageId: messageId);
-                        
-                Console.WriteLine(""+ DateTime.Now + " >> "+message.From.LastName + " " + message.From.FirstName + " >> "+message.Text);
+                Bot.ConsoleWriteLog(message);
             }
             else
             {
                 //await client.SendTextMessageAsync(chatId, "Сотруднику " + message.Text.Substring(6) + " не начислялась зарплата в текущем месяце!",
                 //        replyToMessageId: messageId);
                 await client.SendTextMessageAsync(chatId, "Сотруднику " + message.From.LastName + " " + message.From.FirstName + " не начислялась зарплата в текущем месяце!");//, replyToMessageId: messageId);
-                Console.WriteLine("" + DateTime.Now + " >> " + message.From.LastName + " " + message.From.FirstName + " >> " + message.Text);
+                Bot.ConsoleWriteLog(message);
             }
         }
         public async void OnError(Message message, TelegramBotClient client)
         {
             await client.SendTextMessageAsync(message.Chat.Id, @"Введите ""/my"" ");
+            Bot.ConsoleWriteLog(message);
         }
     }
 }

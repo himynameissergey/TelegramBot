@@ -139,21 +139,21 @@ namespace TelegramBot
                     }
                     // в ответ на команду (фамилию), введенную пользователем в Telegram, выводим сообщение
                     await client.SendTextMessageAsync(chatId, rowTextAll);//, replyToMessageId: messageId);
-                    Console.WriteLine("" + DateTime.Now + " >> " + message.From.LastName + " " + message.From.FirstName + " >> " + message.Text);
+                    Bot.ConsoleWriteLog(message);
                 }
                 else
                 {
                     await client.SendTextMessageAsync(chatId, "Сотруднику " + message.Text.Substring(9) + " не начислялась зарплата в текущем месяце!");//, replyToMessageId: messageId);
-                    Console.WriteLine("" + DateTime.Now + " >> " + message.From.LastName + " " + message.From.FirstName + " >> " + message.Text);
+                    Bot.ConsoleWriteLog(message);
                     //await client.SendTextMessageAsync(chatId, "Сотруднику " + message.From.LastName + " " + message.From.FirstName + " не начислялась зарплата в текущем месяце!",
                     //                           replyToMessageId: messageId);
                 }
             }
-            //await client.SendTextMessageAsync(chatId, $"Привет! Меня зовут {BotSettings.Name}.\nВведи /help чтобы знать, что я умею)", replyToMessageId: messageId);
         }
         public async void OnError(Message message, TelegramBotClient client)
         {
             await client.SendTextMessageAsync(message.Chat.Id, @"Это секретная команда и ее знают лишь избранные");
+            Bot.ConsoleWriteLog(message);
         }
     }
 }

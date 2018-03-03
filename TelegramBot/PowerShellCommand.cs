@@ -60,31 +60,31 @@ namespace TelegramBot
             {
                 if (result.Length > 3000)   //слишком длинная строка (слишком много вариантов)
                 {
-                    await client.SendTextMessageAsync(chatId, @"По строке """ + message.Text.Split()[1] + @""" найдено слишком много вариантов. Укажите более полное имя компьютера");
-                    Console.WriteLine("" + DateTime.Now + " >> " + message.From.LastName + " " + message.From.FirstName + " >> " + message.Text);
+                    await client.SendTextMessageAsync(chatId, @"По строке """ + message.Text.Split()[1] + @""" найдено слишком много вариантов. Укажите более полное имя компьютера или пользователя");
+                    Bot.ConsoleWriteLog(message);
                     return;
                 }
                 else if (result.Length < 10)    //что-то пошло не так
                 {
-                    await client.SendTextMessageAsync(chatId, "Компьютер с именем " + message.Text.Split()[1] + " не найден в Active Directory");
-                    Console.WriteLine("" + DateTime.Now + " >> " + message.From.LastName + " " + message.From.FirstName + " >> " + message.Text);
+                    await client.SendTextMessageAsync(chatId, "Компьютер или пользователь с именем " + message.Text.Split()[1] + " не найден в Active Directory");
+                    Bot.ConsoleWriteLog(message);
                 }
                 else  //вот теперь все чотко
                 {
                     await client.SendTextMessageAsync(userId, result);
-                    Console.WriteLine("" + DateTime.Now + " >> " + message.From.LastName + " " + message.From.FirstName + " >> " + message.Text);
+                    Bot.ConsoleWriteLog(message);
                 }
             }
             else
             {
                 await client.SendTextMessageAsync(chatId, "В параметре " + message.Text.Split()[1] + " указаны некорректные символы");
-                Console.WriteLine("" + DateTime.Now + " >> " + message.From.LastName + " " + message.From.FirstName + " >> " + message.Text);
+                Bot.ConsoleWriteLog(message);
             }
         }
         public async void OnError(Message message, TelegramBotClient client)
         {
             await client.SendTextMessageAsync(message.Chat.Id, @"Введите ""/ad"" и через пробел часть имени компьютера или пользователя");
-            Console.WriteLine("" + DateTime.Now + " >> " + message.From.LastName + " " + message.From.FirstName + " >> " + message.Text);
+            Bot.ConsoleWriteLog(message);
         }
         static string RunScript(string scriptText)
         {

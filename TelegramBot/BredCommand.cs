@@ -43,12 +43,13 @@ namespace TelegramBot
 
                 string s = bm.Generate(this.NumMessages);
                 await client.SendTextMessageAsync(chatId, s);//, replyToMessageId: messageId);
-                Console.WriteLine("" + now + " >> " + message.From.LastName + " " + message.From.FirstName + " >> " + message.Text);
+                Bot.ConsoleWriteLog(message);
             }
         }
         public async void OnError(Message message, TelegramBotClient client)
         {
             await client.SendTextMessageAsync(message.Chat.Id, @"Введите ""/bred"" и через пробел количество дебильных фраз");
+            Bot.ConsoleWriteLog(message);
         }
         public int NumMessages = 0;
         public string Generate(int numMessages)

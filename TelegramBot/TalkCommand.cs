@@ -19,11 +19,12 @@ namespace TelegramBot
             DateTime now = DateTime.Now;
             string phrase = Generate(1);
             await client.SendTextMessageAsync(chatId, phrase);
-            Console.WriteLine("" + now + " >> " + message.From.LastName + " " + message.From.FirstName + " >> " + message.Text);
+            Bot.ConsoleWriteLog(message);
         }
         public async void OnError(Message message, TelegramBotClient client)
         {
             await client.SendTextMessageAsync(message.Chat.Id, @"Неверное количество аргументов!");
+            Bot.ConsoleWriteLog(message);
         }
         public string Generate(int numMessages)
         {
