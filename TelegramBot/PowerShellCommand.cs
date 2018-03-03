@@ -42,9 +42,9 @@ namespace TelegramBot
                                     #ищем среди пользователей
                                     $users = Get-ADUser -Filter { SamAccountName -like $want -or Name -like $want -or CN -like $want -or DisplayName -like $want } -SearchBase  ""OU=Users,OU=R32,OU=FGUP,DC=main,DC=russianpost,DC=ru"" -Properties DisplayName,SamAccountName,Department,Title,Description,PasswordExpired,LastLogonDate,Enabled,LockedOut
                                     if ( $comps.Length -gt 1 ) {
-                                        ForEach-Object -InputObject $comps -Process { ft -Property ObjectClass,SamAccountName -InputObject $_ -HideTableHeaders -AutoSize}
+                                        ForEach-Object -InputObject $comps -Process { ft -Property ObjectClass,Name -InputObject $_ -HideTableHeaders -AutoSize}
                                     } else {
-                                        $comps | fl -Property ObjectClass,SamAccountName,Enabled,Description
+                                        $comps | fl -Property ObjectClass,Name,Enabled,Description
                                     }
                                     if ( $users.Length -gt 1 ) {
                                         ForEach-Object -InputObject $users -Process { ft -Property  ObjectClass,DisplayName,SamAccountName -InputObject $_ -HideTableHeaders -AutoSize}
