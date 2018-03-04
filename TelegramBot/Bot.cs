@@ -106,16 +106,16 @@ namespace TelegramBot
                                         command.OnError(update.Message, bot);
                                         break;
                                     }
-                                    //------------------------- без обработки параметра
-                                    //if (update.Message.Text != null && (update.Message.Text.Contains(command.Name) || update.Message.Text.Contains(FirstSymbolUp(command.Name))))
-                                    //{
-                                    //    command.Execute(update.Message, bot);
-                                    //    break;
-                                    //}
-                                    //------------------------- без обработки параметра
-                                    //}
-                                }
+                                //------------------------- без обработки параметра
+                                //if (update.Message.Text != null && update.Message.Text.ToLower().Contains(command.Name))
+                                //{
+                                //    command.Execute(update.Message, bot);
+                                //    break;
+                                //}
+                                //------------------------- без обработки параметра
+                                //}
                             }
+                        }
                         //}
                     }
                     offset = update.Id + 1;
