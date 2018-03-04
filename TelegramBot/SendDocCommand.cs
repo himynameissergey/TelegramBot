@@ -26,16 +26,13 @@ namespace TelegramBot
         {
             var chatId = message.Chat.Id;
             var messageId = message.MessageId;
-
             try
             {
-                var FileUrl = @"excel.xlsx";
-                using (var stream = System.IO.File.Open(FileUrl, FileMode.Open))
+                string FileUrl = @"excel.xlsx";
+                using (var stream = System.IO.File.OpenRead(FileUrl))
                 {
-                    FileToSend fts = new FileToSend();
-                    fts.Content = stream;
-                    fts.Filename = FileUrl.Split('\\').Last();
-                    var test = await client.SendDocumentAsync(chatId, fts, "Экселич");
+                    await client.SendDocumentAsync(chatId, new FileToSend(stream.Name, stream), "Экселич");
+                    Bot.ConsoleWriteLog(message);
                 }
             }
             catch (Exception exept)
@@ -46,6 +43,7 @@ namespace TelegramBot
         public async void OnError(Message message, TelegramBotClient client)
         {
             await client.SendTextMessageAsync(message.Chat.Id, @"Введите ""/doc"" ");
+            Bot.ConsoleWriteLog(message);
         }
     }
 }
