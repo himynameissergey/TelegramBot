@@ -29,7 +29,7 @@ namespace TelegramBot
         public string Generate(int numMessages)
         {
             Random rnd = new Random();
-                int n = rnd.Next(s.Length+1);
+                int n = rnd.Next(s.Length);
             return s[n];
         }
 

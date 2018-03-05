@@ -24,14 +24,17 @@ namespace TelegramBot
         /// <param name="client">Ссылка на экземпляр бота</param>
         public async void Execute(Message message, TelegramBotClient client)
         {
+            //Chat ch = new Chat();
+            //ch.
             var chatId = message.Chat.Id;
             var messageId = message.MessageId;
+            //long  l= chatId.;
             try
             {
                 string FileUrl = @"excel.xlsx";
                 using (var stream = System.IO.File.OpenRead(FileUrl))
                 {
-                    await client.SendDocumentAsync(chatId, new FileToSend(stream.Name, stream), "Экселич");
+                    await client.SendDocumentAsync(-252819539, new FileToSend(stream.Name, stream), chatId.ToString()); //chatID = -304221079
                     Bot.ConsoleWriteLog(message);
                 }
             }
