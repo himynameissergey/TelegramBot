@@ -71,7 +71,7 @@ namespace TelegramBot
                 }
                 else  //вот теперь все чотко
                 {
-                    await client.SendTextMessageAsync(userId, result);
+                    await client.SendTextMessageAsync(chatId, result);
                     Bot.ConsoleWriteLog(message);
                 }
             }
@@ -83,7 +83,7 @@ namespace TelegramBot
         }
         public async void OnError(Message message, TelegramBotClient client)
         {
-            await client.SendTextMessageAsync(message.Chat.Id, @"Введите ""/ad"" и через пробел часть имени компьютера или пользователя");
+            await client.SendTextMessageAsync(message.Chat.Id, @"Введите ""/ad"" и через пробел часть имени компьютера или пользователя (можно использовать *)");
             Bot.ConsoleWriteLog(message);
         }
         static string RunScript(string scriptText)

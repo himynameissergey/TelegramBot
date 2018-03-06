@@ -20,7 +20,6 @@ namespace TelegramBot
 
         ParserWorker<string[]> parser;
         List<string> anekdots = new List<string>();
-
         /// <summary>
         /// Вызывает команду
         /// </summary>
@@ -41,7 +40,7 @@ namespace TelegramBot
         }
         public async void OnError(Message message, TelegramBotClient client)
         {
-            await client.SendTextMessageAsync(message.Chat.Id, @"Введите ""/start"" ");
+            await client.SendTextMessageAsync(message.Chat.Id, @"Введите ""/anek"" ");
         }
         private void Parser_OnCompleted(object obj)
         {
@@ -50,7 +49,10 @@ namespace TelegramBot
         private void Parser_OnNewData(object arg1, string[] arg2)
         {
             anekdots.AddRange(arg2);
-            Console.WriteLine(arg2[10]);
+            for (int i = 4; i < 10; i++)
+            {
+                Console.WriteLine(arg2[i]);
+            }
             
         }
     }
