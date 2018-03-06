@@ -42,6 +42,7 @@ namespace TelegramBot
             commands.Add(new TalkCommand());
             commands.Add(new PowerShellCommand());
             commands.Add(new SendDocCommand());
+            commands.Add(new ParseCommand());
         }
         /// <summary>
         /// Функция возвращает строку с заглавным первым символом
