@@ -13,7 +13,7 @@ namespace TelegramBot.ParserCore.Habra
         {
             var list = new List<string>();
             //var items = document.QuerySelectorAll("a").Where(item => item.ClassName != null && item.ClassName.Contains("post__title_link"));
-            var items = document.QuerySelectorAll("div").Where(item => item.ClassName != null && item.ClassName.Contains("post"));
+            var items = document.QuerySelectorAll("div").Where(item => item.ClassName != null && item.ClassName.Contains("text"));
 
             foreach (var item in items)
             {

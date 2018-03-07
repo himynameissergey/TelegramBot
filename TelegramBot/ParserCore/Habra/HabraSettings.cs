@@ -8,9 +8,9 @@
             EndPoint = end;
         }
         //public string BaseUrl { get; set; } = "https://habrahabr.ru";
-        public string BaseUrl { get; set; } = "http://vse-shutochki.ru/anekdoty";
+        public string BaseUrl { get; set; } = "https://nekdo.ru";
         //public string Prefix { get; set; } = "page{CurrentId}";
-        public string Prefix { get; set; } = "{CurrentId}";
+        public string Prefix { get; set; } = "page/{CurrentId}";
         public int StartPoint { get; set; }
         public int EndPoint { get; set; }
     }

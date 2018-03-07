@@ -37,7 +37,7 @@ namespace TelegramBot
             //parser.Start();
             Random rnd = new Random();
             int r = rnd.Next(anekdots.Count);
-            await client.SendTextMessageAsync(chatId, anekdots[r]);
+            //await client.SendTextMessageAsync(chatId, anekdots[r]);
         }
         public async void OnError(Message message, TelegramBotClient client)
         {
