@@ -18,8 +18,8 @@ namespace TelegramBot
         public string Name { get; set; } = "/anek";
         public int CountArgs { get; set; } = 0;
 
-        ParserWorker<string[]> parser;
-        List<string> anekdots = new List<string>();
+        //ParserWorker<string[]> parser;
+        static List<string> anekdots = new List<string>();
         /// <summary>
         /// Вызывает команду
         /// </summary>
@@ -30,30 +30,31 @@ namespace TelegramBot
             var chatId = message.Chat.Id;
             var messageId = message.MessageId;
 
-            parser = new ParserWorker<string[]>(new HabraParser());
-            parser.OnCompleted += Parser_OnCompleted;
-            parser.OnNewData += Parser_OnNewData;
-            parser.Settings = new HabraSettings(1, 1);  // первая страница сайта
-            parser.Start();
-
-            //await client.SendTextMessageAsync(chatId, anekdots[10]);
+            //parser = new ParserWorker<string[]>(new HabraParser());
+            //parser.OnCompleted += Parser_OnCompleted;
+            //parser.OnNewData += Parser_OnNewData;
+            //parser.Settings = new HabraSettings(1, 1);  // первая страница сайта
+            //parser.Start();
+            Random rnd = new Random();
+            int r = rnd.Next(anekdots.Count);
+            await client.SendTextMessageAsync(chatId, anekdots[r]);
         }
         public async void OnError(Message message, TelegramBotClient client)
         {
             await client.SendTextMessageAsync(message.Chat.Id, @"Введите ""/anek"" ");
         }
-        private void Parser_OnCompleted(object obj)
+        public static void Parser_OnCompleted(object obj)
         {
             Console.WriteLine("Парсер отработал!");
         }
-        private void Parser_OnNewData(object arg1, string[] arg2)
+        public static void Parser_OnNewData(object arg1, string[] arg2)
         {
-            anekdots.AddRange(arg2);
-            for (int i = 4; i < 10; i++)
+            for (int i = 0; i < arg2.Length; i++)
             {
+                arg2[i] = arg2[i].Replace("\n","");
                 Console.WriteLine(arg2[i]);
             }
-            
+            anekdots.AddRange(arg2);
         }
     }
 }
