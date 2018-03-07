@@ -37,11 +37,13 @@ namespace TelegramBot
             //parser.Start();
             Random rnd = new Random();
             int r = rnd.Next(anekdots.Count);
-            //await client.SendTextMessageAsync(chatId, anekdots[r]);
+            await client.SendTextMessageAsync(chatId, anekdots[r]);
+            Bot.ConsoleWriteLog(message);
         }
         public async void OnError(Message message, TelegramBotClient client)
         {
             await client.SendTextMessageAsync(message.Chat.Id, @"Введите ""/anek"" ");
+            Bot.ConsoleWriteLog(message);
         }
         public static void Parser_OnCompleted(object obj)
         {
