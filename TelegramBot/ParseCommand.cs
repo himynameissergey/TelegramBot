@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Types;
@@ -53,7 +54,11 @@ namespace TelegramBot
         {
             for (int i = 0; i < arg2.Length; i++)
             {
+                //Regex rgx = new Regex(@"\W");
+                //arg2[i] = rgx.Replace(arg2[i], "");
+
                 arg2[i] = arg2[i].Replace("\n","");
+
                 Console.WriteLine(arg2[i]);
             }
             anekdots.AddRange(arg2);
