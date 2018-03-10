@@ -12,7 +12,8 @@ namespace TelegramBot.ParserCore
         public HtmlLoader(IParserSettings settings)
         {
             client = new HttpClient();
-            url = $"{settings.BaseUrl}/{settings.Prefix}/";
+            url = $"{settings.BaseUrl}/{settings.Prefix}/";   //habr, nekdo
+            //url = $"{settings.BaseUrl}{settings.Prefix}";   //2ch
         }
 
         public async Task<string> GetSourceByPageId(int id)

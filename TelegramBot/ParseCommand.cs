@@ -58,7 +58,6 @@ namespace TelegramBot
                 //arg2[i] = rgx.Replace(arg2[i], "");
 
                 arg2[i] = arg2[i].Replace("\n","");
-
                 Console.WriteLine(arg2[i]);
             }
             anekdots.AddRange(arg2);
