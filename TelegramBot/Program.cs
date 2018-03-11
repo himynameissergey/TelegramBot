@@ -23,6 +23,7 @@ namespace TelegramBot
             parser.OnCompleted += ParseCommand.Parser_OnCompleted;
             parser.OnNewData += ParseCommand.Parser_OnNewData;
             parser.Settings = new HabraSettings(1, 5);  // первая страница сайта
+            parser.Start();
             #endregion
             bot.RunAsync().Wait();
             Console.ReadKey();
