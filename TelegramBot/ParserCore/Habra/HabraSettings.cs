@@ -8,11 +8,12 @@
             EndPoint = end;
         }
         //public string BaseUrl { get; set; } = "https://habrahabr.ru";
-        public string BaseUrl { get; set; } = "https://nekdo.ru";
+        //public string BaseUrl { get; set; } = "https://nekdo.ru";
         //public string BaseUrl { get; set; } = "https://2ch.hk/news/";
+        public string BaseUrl { get; set; } = "https://m.lenta.ru/";
         //public string Prefix { get; set; } = "page{CurrentId}";   //habr
-        public string Prefix { get; set; } = "page/{CurrentId}";    //nekdo
-        //public string Prefix { get; set; } = "";    //2ch
+        //public string Prefix { get; set; } = "page/{CurrentId}";  //nekdo
+        public string Prefix { get; set; } = "";    //2ch, lenta.ru
         public int StartPoint { get; set; }
         public int EndPoint { get; set; }
     }
