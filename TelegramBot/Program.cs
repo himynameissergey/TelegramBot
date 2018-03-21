@@ -23,7 +23,7 @@ namespace TelegramBot
             parser = new ParserWorker<string[]>(new HabraParser());
             parser.OnCompleted += ParseCommand.Parser_OnCompleted;
             parser.OnNewData += ParseCommand.Parser_OnNewData;
-            parser.Settings = new HabraSettings(1, 5);  // первая страница сайта
+            parser.Settings = new HabraSettings(1, 1);  // первая страница сайта
              //parser.Start();                                                        
             TimerCallback tcb = new TimerCallback(Get2chNews);  // устанавливаем метод обратного вызова
             // создаем таймер
