@@ -19,11 +19,6 @@ namespace TelegramBot.ParserCore.Habra
             //var items = document.QuerySelectorAll("a").Where(item => item.ClassName != null && item.ClassName.Contains("story__title-link")).OfType<IHtmlAnchorElement>(); //pikabu
             //var items = document.All.Where(item => item.LocalName != null && item.LocalName.Contains("img")).OfType<IHtmlImageElement>(); //stavklass
 
-            //AngleSharp example
-            //var document = parser.Parse("<ul><li>First item<li>Second item<li class='blue'>Third item!<li class='blue red'>Last item!</ul>");
-            ////Do something with LINQ
-            //var blueListItemsLinq = document.All.Where(m => m.LocalName == "li" && m.ClassList.Contains("blue"));
-
             foreach (var item in items)
             {
                 //list.Add(item.Source); //habr, nekdo, stavklass
@@ -36,3 +31,8 @@ namespace TelegramBot.ParserCore.Habra
     }
 }
 
+            //AngleSharp example
+            //var document = parser.Parse("<ul><li>First item<li>Second item<li class='blue'>Third item!<li class='blue red'>Last item!</ul>");
+            ////Do something with LINQ
+            //var blueListItemsLinq = document.All.Where(m => m.LocalName == "li" && m.ClassList.Contains("blue"));
+//var links= document.QuerySelectorAll("a.object-title-a.text-truncate").Where(item => item.Atributtes["href"]!=null).Select(x=>x.item.Atributtes["href"].Value).ToList();
