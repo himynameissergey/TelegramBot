@@ -31,7 +31,7 @@ namespace TelegramBot
                 string FileUrl = @"excel.xlsx";
                 using (var stream = System.IO.File.OpenRead(FileUrl))
                 {
-                    await client.SendDocumentAsync(chatId, new FileToSend(stream.Name, stream), chatId.ToString()); //chatID = -304221079
+                    //await client.SendDocumentAsync(chatId, new IInputFile (stream.Name, stream), chatId.ToString()); //chatID = -304221079
                     Bot.ConsoleWriteLog(message);
                 }
             }

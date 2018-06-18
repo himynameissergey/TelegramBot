@@ -1,6 +1,9 @@
-﻿using System;
+﻿using MihaZupan;
+using MTProtoProxy;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Telegram.Bot;
@@ -30,7 +33,18 @@ namespace TelegramBot
         /// </summary>
         public Bot()
         {
-            bot = new TelegramBotClient(BotSettings.Key);
+            #region MTProtoProxy
+            //string secret = Guid.NewGuid().ToString().Replace("-", "");
+            //var mtprotoProxy = new MTProtoProxyServer(secret, 38157);
+            //mtprotoProxy.StartAsync();
+            #endregion
+
+            #region Proxy
+            var proxy = new HttpToSocks5Proxy("bot.avinfo17.info", 38157);
+            proxy.ResolveHostnamesLocally = true; // Allows you to use proxies that are only allowing connections to Telegram
+            #endregion
+
+            bot = new TelegramBotClient(BotSettings.Key, proxy);
             commands.Add(new HelloCommand());
             commands.Add(new HelpCommand());
             commands.Add(new ShowCommand());

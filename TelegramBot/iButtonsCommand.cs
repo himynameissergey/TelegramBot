@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Args;
 using Telegram.Bot.Types;
-using Telegram.Bot.Types.InlineKeyboardButtons;
+using Telegram.Bot.Types.ReplyMarkups;
+//using Telegram.Bot.Types.InlineKeyboardButtons;
 
 namespace TelegramBot
 {

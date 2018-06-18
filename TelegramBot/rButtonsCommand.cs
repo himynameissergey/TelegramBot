@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Args;
 using Telegram.Bot.Types;
+using Telegram.Bot.Types.ReplyMarkups;
 
 namespace TelegramBot
 {
@@ -32,7 +33,7 @@ namespace TelegramBot
                 var update = e.Update;
                 var upd_message = update.Message;
                 if (upd_message == null) return;
-                if (upd_message.Type == Telegram.Bot.Types.Enums.MessageType.TextMessage)
+                if (upd_message.Type == Telegram.Bot.Types.Enums.MessageType.Text)
                 {
                     //reply кнопки
                     var keyboard = new Telegram.Bot.Types.ReplyMarkups.ReplyKeyboardMarkup
@@ -40,8 +41,8 @@ namespace TelegramBot
                         Keyboard = new[] {
                             new[] // row 1
                             {
-                                new Telegram.Bot.Types.KeyboardButton("Чпоньк"),
-                                new Telegram.Bot.Types.KeyboardButton("Жамк"),
+                                new KeyboardButton("Чпоньк"),
+                                new KeyboardButton("Жамк"),
                             },
                          },
                         ResizeKeyboard = true
