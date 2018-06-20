@@ -35,7 +35,7 @@ namespace TelegramBot
         {
             #region MTProtoProxy
             //string secret = Guid.NewGuid().ToString().Replace("-", "");
-            //var mtprotoProxy = new MTProtoProxyServer(secret, 38157);
+            //var mtprotoProxy = new MTProtoProxyServer(secret, 443);
             //mtprotoProxy.StartAsync();
             #endregion
 
@@ -45,6 +45,7 @@ namespace TelegramBot
             #endregion
 
             bot = new TelegramBotClient(BotSettings.Key, proxy);
+            
             commands.Add(new HelloCommand());
             commands.Add(new HelpCommand());
             commands.Add(new ShowCommand());
