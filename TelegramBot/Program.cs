@@ -17,7 +17,6 @@ namespace TelegramBot
             Console.WindowHeight = 10;
             Console.WindowWidth = 100;
             Console.ForegroundColor = ConsoleColor.Cyan;
-            //Console.Beep(60, 3000);
             Console.Title = "Бот Алеша для Telegram";
             Console.WriteLine(DateTime.Now+" Бот Алеша запущен");
             #region For parsing
