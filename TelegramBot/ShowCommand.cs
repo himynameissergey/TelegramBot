@@ -20,12 +20,12 @@ namespace TelegramBot
             DateTime now = DateTime.Now;
             var startDate = new DateTime(now.Year, now.Month, 1);
             //var startDate = new DateTime(2017, 10, 1);
-            string startDateFormatted = startDate.AddYears(2000).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+            string startDateFormatted = startDate.AddYears(2000).ToString("yyyy/MM/dd", CultureInfo.InvariantCulture);
             var endDate = startDate.AddMonths(1).AddDays(-1);
             //var endDate = new DateTime(2018, 2, 1);
-            string endDateFormatted = endDate.AddYears(2000).AddDays(1).AddTicks(-1).ToString("dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+            string endDateFormatted = endDate.AddYears(2000).AddDays(1).AddTicks(-1).ToString("yyyy/MM/dd HH:mm:ss", CultureInfo.InvariantCulture);
 
-            string connectionString = @"Data Source=10.86.1.210; Initial Catalog=R32-ASZUP-WORK; User Id = USER_1C; Password = a4tPL0XX5F5NSgCxrH8g";
+            string connectionString = @"Data Source=10.86.0.167; Initial Catalog=R32-ASZUP-WORK; User Id = usr1cv82; Password = 3f|4thn0q";
             string sqlExpression = @"SELECT
                                     T2._Description as ФИО,
                                     T1._Fld6831 as Сумма,
